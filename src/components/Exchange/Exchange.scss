@@ -1,0 +1,41 @@
+.exchange {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  .exchange__header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .exchange__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 37vh;
+    height: 37vh;
+    box-shadow: 5px 5px 24px 3px rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+    .exchange__form--inputText,
+    .exchange__form--select,
+    .exchange__form--button {
+      background-color: #321684;
+      border: none;
+      border-radius: 10px;
+      height: 4vh;
+      outline: none;
+      font-size: 15px;
+      color: rgb(180, 175, 175);
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+    .exchange__form--button {
+      margin-top: 10px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  }
+}
