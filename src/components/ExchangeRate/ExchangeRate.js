@@ -8,6 +8,7 @@ function ExchangeRate({ exchangeRate }) {
         <div key={item.code} className="exchangeRate__currency">
           <p>{item.code}</p>
           <p>{item.mid}</p>
+          {/*Tu by można ładnie zaokrąglić wszystkie wartości do tej samej liczby miejsc po przecinku, łatwiej się to czyta*/}
         </div>
       ))}
     </div>

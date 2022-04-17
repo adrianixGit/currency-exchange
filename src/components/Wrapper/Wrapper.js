@@ -17,6 +17,8 @@ function Wrapper() {
       });
   }, []);
 
+  // Klepnij sobie tu funkcję getData i w useEffekcie ją tylko wywołaj - ładniej i czytelniej :)
+
   return (
     <div className="wrapper ">
       <Exchange exchangeRate={exchangeRate} />

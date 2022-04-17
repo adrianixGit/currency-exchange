@@ -21,10 +21,13 @@ function Exchange({ exchangeRate }) {
     setQuantity(e.target.value);
   };
 
+  // Tych 3 funkcji powyżej, jeżeli nie używasz ponownie w kilku miejscach, nie ma sensu tworzyć. Lepiej po prostu zmieniać stan bezpośrednio w onChange
+
   const exchangeHandler = () => {
     if (!quantity) {
       alert('Enter a value');
     } else {
+      // Filter do tego nie służy. Nawet bym powiedział, że bardzo brzydko jest użyty. Powinien zawsze coś zwracać. No i IFy łądniej jest zapisać w TERNARY w takim przypadku
       exchangeRate.filter((item) => {
         if (item.code === selectFromValue) {
           exchangeRate.filter((rate) => {
@@ -47,15 +50,17 @@ function Exchange({ exchangeRate }) {
             <input
               type="text"
               className="exchange__form--inputText"
+              // Podziałaj w całym projekcie nad BEMem. Trochę źle go używasz
               onChange={quantityValue}
             ></input>
+            {/* input SelfClosing */}
             <p>From</p>
             <select className="exchange__form--select" onChange={selectFromValueHandler} selected>
               {exchangeRate.map((item) => (
                 <option key={item.code}>{item.code}</option>
               ))}
             </select>
-            <p>On</p>
+            <p>On</p> {/* W tym przypadku bardziej "TO" a nie "ON" ;) */}
             <select className="exchange__form--select" onChange={selectOnValueHandler} selected>
               {exchangeRate.map((item) => (
                 <option key={item.code}>{item.code}</option>
@@ -67,6 +72,7 @@ function Exchange({ exchangeRate }) {
           </button>
         </div>
         {sum}.{}
+        {/* A co to to to :D */}
       </div>
     </div>
   );
