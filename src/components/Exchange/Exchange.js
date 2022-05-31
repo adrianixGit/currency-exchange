@@ -5,35 +5,22 @@ function Exchange({ exchangeRate }) {
   if (!exchangeRate) return 'loading';
 
   const [selectFromValue, setSelectFromValue] = useState(exchangeRate[0].code);
-  const [selectOnValue, setSelectOnValue] = useState(exchangeRate[0].code);
+  const [selectToValue, setSelectToValue] = useState(exchangeRate[0].code);
   const [quantity, setQuantity] = useState();
   const [sum, setSum] = useState(0);
-
-  const selectFromValueHandler = (e) => {
-    setSelectFromValue(e.target.value);
-  };
-
-  const selectOnValueHandler = (e) => {
-    setSelectOnValue(e.target.value);
-  };
-
-  const quantityValue = (e) => {
-    setQuantity(e.target.value);
-  };
+  const [alert, setAlert] = useState('');
+  const [currencyCode, setCurrencyCode] = useState();
 
   const exchangeHandler = () => {
     if (!quantity) {
-      alert('Enter a value');
+      setAlert('Enter a value');
+      setSum(0);
     } else {
-      exchangeRate.filter((item) => {
-        if (item.code === selectFromValue) {
-          exchangeRate.filter((rate) => {
-            if (rate.code === selectOnValue) {
-              setSum((quantity * item.mid) / rate.mid);
-            }
-          });
-        }
-      });
+      setAlert('');
+      const findFromValue = exchangeRate.find((item) => selectFromValue === item.code);
+      const findToValue = exchangeRate.find((item) => selectToValue === item.code);
+      setSum((quantity * findFromValue.mid) / findToValue.mid);
+      setCurrencyCode(findToValue.code);
     }
   };
 
@@ -42,31 +29,46 @@ function Exchange({ exchangeRate }) {
       <h1 className="exchange__header">CURRENCY EXCHANGE PLATFORM</h1>
       <div className="exchange__form">
         <div>
+          <p className="exchange__alert">{alert}</p>
           <div>
-            <p>Amount</p>
+            <p className="exchange__operationName">Amount</p>
             <input
               type="text"
-              className="exchange__form--inputText"
-              onChange={quantityValue}
-            ></input>
-            <p>From</p>
-            <select className="exchange__form--select" onChange={selectFromValueHandler} selected>
+              className="exchange__inputText"
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+            />
+            <p className="exchange__operationName">From</p>
+            <select
+              className="exchange__select"
+              onChange={(e) => {
+                setSelectFromValue(e.target.value);
+              }}
+              selected
+            >
               {exchangeRate.map((item) => (
                 <option key={item.code}>{item.code}</option>
               ))}
             </select>
-            <p>On</p>
-            <select className="exchange__form--select" onChange={selectOnValueHandler} selected>
+            <p className="exchange__operationName">To</p>
+            <select
+              className="exchange__select"
+              onChange={(e) => {
+                setSelectToValue(e.target.value);
+              }}
+              selected
+            >
               {exchangeRate.map((item) => (
                 <option key={item.code}>{item.code}</option>
               ))}
             </select>
           </div>
-          <button className="exchange__form--button" onClick={exchangeHandler}>
+          <button className="exchange__btn" onClick={exchangeHandler}>
             Exchange
           </button>
         </div>
-        {sum}.{}
+        <p className="exchange__sum">{sum === 0 ? '' : sum.toFixed(2) + currencyCode}</p>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 .wrapper {
   width: 80vw;
   height: 80vh;
-  background-color: rgba(82, 51, 178, 1);
-  background-image: linear-gradient(355deg, rgba(82, 51, 178, 1) 0%, rgba(69, 47, 139, 1) 100%);
+  background-color: rgba(82, 51, 178, 0.5);
+  background-image: linear-gradient(355deg, rgba(82, 51, 178, 0.5) 0%, rgba(69, 47, 139, 0.5) 100%);
   border-radius: 10px;
   box-shadow: 5px 5px 24px 3px rgb(0, 0, 0);
   display: flex;
-  padding: 10px;
+  position: relative;
+  backdrop-filter: blur(8px);
 }

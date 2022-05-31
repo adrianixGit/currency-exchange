@@ -5,8 +5,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 5vh 0 5vh 0;
   .exchange__header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5vh;
+    text-align: center;
   }
   .exchange__form {
     display: flex;
@@ -14,28 +17,47 @@
     align-items: center;
     justify-content: center;
     margin: 10px;
-    width: 37vh;
+    width: 37vw;
     height: 37vh;
     box-shadow: 5px 5px 24px 3px rgb(0, 0, 0, 0.2);
     border-radius: 10px;
-    .exchange__form--inputText,
-    .exchange__form--select,
-    .exchange__form--button {
-      background-color: #321684;
+    .exchange__alert {
+      color: rgb(182, 26, 26);
+      text-align: center;
+      font-size: 2vh;
+    }
+    .exchange__operationName {
+      font-size: 1.5vh;
+    }
+    .exchange__inputText,
+    .exchange__select,
+    .exchange__btn {
+      background-color: rgba(50, 22, 132, 0.7);
       border: none;
       border-radius: 10px;
       height: 4vh;
       outline: none;
-      font-size: 15px;
+      font-size: 1.5vh;
       color: rgb(180, 175, 175);
       font-weight: bold;
       text-align: center;
-      width: 100%;
+      width: 30vw;
     }
-    .exchange__form--button {
+    .exchange__btn {
       margin-top: 10px;
       border: 1px solid white;
       cursor: pointer;
+    }
+    .exchange__btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid #321684;
+      color: #321684;
+    }
+    .exchange__sum {
+      font-size: 2vh;
+      margin: 1vh;
+      font-weight: 600;
+      color: rgb(135, 224, 135);
     }
   }
 }

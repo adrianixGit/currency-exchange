@@ -7,7 +7,7 @@ function ExchangeRate({ exchangeRate }) {
       {exchangeRate.map((item) => (
         <div key={item.code} className="exchangeRate__currency">
           <p>{item.code}</p>
-          <p>{item.mid}</p>
+          <p>{item.mid.toFixed(3)}</p>
         </div>
       ))}
     </div>

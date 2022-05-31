@@ -7,18 +7,21 @@
   font-weight: 500;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 1.5vh;
+  background-color: rgba(56, 54, 54, 0.2);
+  border-radius: 0 10px 10px 0;
+  border-left: 1px solid black;
   .exchangeRate__currency {
     width: 80%;
     height: 2vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #321684;
     border-radius: 3px;
     margin-bottom: 1px;
+    padding: 0 5px 0 5px;
   }
   .exchangeRate__currency:nth-child(2n + 1) {
-    background-color: rgba(50, 22, 132, 0.5);
+    background-color: rgba(50, 22, 132, 0.8);
   }
 }
